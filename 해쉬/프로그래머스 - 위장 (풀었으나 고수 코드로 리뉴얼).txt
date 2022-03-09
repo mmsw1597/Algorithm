@@ -1,0 +1,25 @@
+#include <string>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+int solution(vector<vector<string>> clothes) {
+    int answer = 1;
+    
+    unordered_map<string,int> m;
+    
+    for(int i=0; i<clothes.size(); i++)
+        m[clothes[i][1]]++;
+    
+    for(auto it = m.begin(); it != m.end(); it++) {
+        answer *= ((it->second) +1);
+    }
+    
+    return answer - 1;
+}
+
+//해당 코드는 다른 고수의 풀이를 그대로 옮긴 것 insert 함수를 이용하지않고 배열처럼 값을 집어 넣을 수 있다는 점, value 값이 int인경우 0으로 초기화된다는 점을 배움 
+
+
+
